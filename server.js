@@ -32,21 +32,31 @@ connection.connect(function(err) {
 });
 
 // Root get route
-app.get("/", function(req, res) {
-  connection.query("SELECT * FROM burgers;", function(err, data) {
-    if (err) throw err;
-    res.render("index", { burgers: data });
-  });
-});
+app.get("/", 
+  function(req, res) {
+    connection.query("SELECT * FROM burgers;", 
+      function(err, data) {
+        if (err) throw err;
+        res.render("index", { burgers: data });
+
+      }
+    );
+  }
+);
 
 
-app.post("/:burger", function(req, res) {
-
-  connection.query("INSERT INTO tasks (task) VALUES (?)", [req.body.buger], function(err, result) {
-    if (err) throw err;
-    res.redirect("/");
-  });
-});
+app.post("/", 
+  function(req, res) {
+    console.log(req.body);
+    connection.query("INSERT INTO burgers (name) VALUES (?)", 
+      [req.body.userBurger],
+      function(err, result) {
+        if (err) throw err;
+        res.redirect("/");
+      }
+    );
+  }
+);
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, function() {
