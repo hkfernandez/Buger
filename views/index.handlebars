@@ -1,17 +1,18 @@
-<h1>Task Saver</h1>
+<img src="../public/assets/images/basicBurger.png" alt="A Delicious Buger">
 
-<h3>Save the tasks you need to get to later</h3>
+<h1>Beautiful Burgers</h1>
+<h2>Good for You - Bad for the Burger</h2>
 
 <ul>
-  {{#each burger}}
+  {{#each burgers}}
   	<li>
-  	   <p>ID: {{this.name}}</p>
+  	   <p>{{this.name}}</p>
   	</li>
   {{/each}}
 </ul>
 
 <form action="/" method="POST">
-	<textarea type="text" name="task"></textarea>
+	<textarea type="text" name="userBuger"></textarea>
 
 	<button type="submit">Submit</button>
 </form>
