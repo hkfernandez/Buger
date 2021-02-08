@@ -1,5 +1,5 @@
 {
-  "name": "Beautiful_Burgers",
+  "name": "beautiful_burgers",
   "version": "1.0.0",
   "description": "A fun little apps that lets you eat as many bugers as you want",
   "main": "server.js",
