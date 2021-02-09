@@ -31,7 +31,6 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
-// Root get route
 app.get("/", 
   function(req, res) {
     connection.query(`SELECT * FROM burgers;`, 
@@ -60,16 +59,20 @@ app.get("/",
 
 
 app.post("/", 
-  function(req, res) {
-    console.log(req.body);
-    connection.query("INSERT INTO burgers (name) VALUES (?)", 
-      [req.body.userBurger],
-      function(err, result) {
-        if (err) throw err;
-        res.redirect("/");
-      }
-    );
-  }
+	function(req, res) {
+		console.log(req.body);
+		burgerToEat = req.body.burgerId
+		console.log(burgerToEat);
+		connection.query( `UPDATE burgers
+			SET consumed = 0
+			WHERE id = ${burgerToEat}`, 
+				// [req.body.userBurger],
+				function(err, result) {
+					if (err) throw err;
+					res.redirect("/");
+				}
+		);
+	}
 );
 
 // Start our server so that it can begin listening to client requests.

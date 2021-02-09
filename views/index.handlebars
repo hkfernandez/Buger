@@ -6,7 +6,11 @@
 	<ul>
 		{{#each uneatenBurgers}}
 			<li>
-			<p>{{this.name}}</p>
+			<div>
+				<form action="/">
+					<span>{{this.name}}</span>
+					<button type="submit" formmethod="POST" name="burgerId" value="{{this.id}}">Eat That Burger!</button></div>
+				</form>
 			</li>
 		{{/each}}
 	</ul>
@@ -15,7 +19,7 @@
 	<ul>
 		{{#each eatenBurgers}}
 			<li>
-			<p>{{this.name}}</p>
+			<div>{{this.name}}</div>
 			</li>
 		{{/each}}
 	</ul>
