@@ -2,14 +2,24 @@
 
 <h1>Beautiful Burgers</h1>
 <h2>Good for You - Bad for the Burger</h2>
-
-<ul>
-  {{#each burgers}}
-  	<li>
-  	   <p>{{this.name}}</p>
-  	</li>
-  {{/each}}
-</ul>
+<div id="toBeEaten">
+	<ul>
+		{{#each uneatenBurgers}}
+			<li>
+			<p>{{this.name}}</p>
+			</li>
+		{{/each}}
+	</ul>
+</div>
+<div id="eaten">
+	<ul>
+		{{#each eatenBurgers}}
+			<li>
+			<p>{{this.name}}</p>
+			</li>
+		{{/each}}
+	</ul>
+</div>
 
 <form action="/" method="POST">
 	<textarea type="text" name="userBurger"></textarea>

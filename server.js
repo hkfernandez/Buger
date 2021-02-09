@@ -34,12 +34,26 @@ connection.connect(function(err) {
 // Root get route
 app.get("/", 
   function(req, res) {
-    connection.query("SELECT * FROM burgers;", 
-      function(err, data) {
-        if (err) throw err;
-        res.render("index", { burgers: data });
-
-      }
+    connection.query(`SELECT * FROM burgers;`, 
+		function(err, data) {
+			if (err) throw err;
+			const uneatenBurgersArr =[]
+			const eatenBurgersArr = []
+			data.forEach(burger => {
+				if (burger.consumed === 1) {
+					uneatenBurgersArr.push(burger)
+				} else {
+					eatenBurgersArr.push(burger)
+				}
+			});
+			// console.log(uneatenBurgersArr);
+			// console.log(eatenBurgersArr);
+			res.render("index", 
+				{ uneatenBurgers: uneatenBurgersArr, 
+					eatenBurgers: eatenBurgersArr
+				}
+			);
+      	}
     );
   }
 );
