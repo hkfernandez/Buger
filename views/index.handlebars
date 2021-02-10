@@ -1,25 +1,18 @@
 <main id='listsWrapper'>
 	<div class="list">
 		<h3>~ Your Plate ~</h3>
-		<div id='uneatenBody' class="list">
-			<ul>
+		<div class="list">
 				{{#each uneatenBurgers}}
-					<li>
-					<div>
-						<form action="/">
-							<span>{{this.name}}</span>
-							<button class="eatBtn" type="submit" formmethod="POST" name="burgerId" data-id="{{this.id}}">
-								Eat It!
-							</button></div>
-						</form>
-					</li>
+					<div class='uneatenRow'>
+						<div>{{this.name}}</div>
+						<button class="eatBtn" name="burgerId" data-id="{{this.id}}">Eat It!</button>
+					</div>
 				{{/each}}
-			</ul>
 		</div>
 	</div>
 	<div class="list">
 		<h3>~ Your Stomach ~</h3>
-		<div id='eatenBody' class="list">
+		<div class='eatenRow' class="list">
 			<ul>
 				{{#each eatenBurgers}}
 					<li>
@@ -32,6 +25,6 @@
 </main>
 
 <form id="submissionForm" action="/" method="POST">
-	<textarea id='userInput' type="text" name="userBurger" placeholder="What are you hungary for?"></textarea>
+	<textarea id='userInput' type="text" name="userBurger" placeholder="What are you hungary for?..."></textarea>
 	<button id="submitBtn" type="submit">SERVE IT UP</button>
 </form>

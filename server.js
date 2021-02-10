@@ -78,13 +78,14 @@ app.post("/",
 app.put("/api/eat/:Id", 		//changes the selected burger's state to consumed
 	function(req, res) {
 		burgerToEat = req.params.Id
+		console.log('request.params line 81: ',req.params);
 		console.log('request.body line 81: ',req.body);
 		connection.query( `UPDATE burgers
 			SET consumed = 0
 			WHERE id = ${burgerToEat}`, 
 				function(err, result) {
 					if (err) throw err;
-					// res.redirect("/");
+					res.redirect("/api/eat/");
 				}
 		);
 	}

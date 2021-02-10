@@ -13,7 +13,7 @@ $(".eatBtn").on("click",
 		.then(
 			function(response) {
 				console.log(response);
-				// location.assign("/");
+				location.assign("/api/eat/");
 			}
 		);
   	}
