@@ -1,31 +1,37 @@
-<img src="../public/assets/images/basicBurger.png" alt="A Delicious Buger">
+<main id='listsWrapper'>
+	<div class="list">
+		<h3>~ Your Plate ~</h3>
+		<div id='uneatenBody' class="list">
+			<ul>
+				{{#each uneatenBurgers}}
+					<li>
+					<div>
+						<form action="/">
+							<span>{{this.name}}</span>
+							<button class="eatBtn" type="submit" formmethod="POST" name="burgerId" data-id="{{this.id}}">
+								Eat It!
+							</button></div>
+						</form>
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+	<div class="list">
+		<h3>~ Your Stomach ~</h3>
+		<div id='eatenBody' class="list">
+			<ul>
+				{{#each eatenBurgers}}
+					<li>
+					<div>{{this.name}}</div>
+					</li>
+				{{/each}}
+			</ul>
+		</div>
+	</div>
+</main>
 
-<h1>Beautiful Burgers</h1>
-<h2>Good for You - Bad for the Burger</h2>
-<div id="toBeEaten">
-	<ul>
-		{{#each uneatenBurgers}}
-			<li>
-			<div>
-				<form action="/">
-					<span>{{this.name}}</span>
-					<button type="submit" formmethod="POST" name="burgerId" value="{{this.id}}">Eat That Burger!</button></div>
-				</form>
-			</li>
-		{{/each}}
-	</ul>
-</div>
-<div id="eaten">
-	<ul>
-		{{#each eatenBurgers}}
-			<li>
-			<div>{{this.name}}</div>
-			</li>
-		{{/each}}
-	</ul>
-</div>
-
-<form action="/" method="POST">
-	<textarea type="text" name="userBurger"></textarea>
-	<button type="submit">Submit</button>
+<form id="submissionForm" action="/" method="POST">
+	<textarea id='userInput' type="text" name="userBurger" placeholder="What are you hungary for?"></textarea>
+	<button id="submitBtn" type="submit">SERVE IT UP</button>
 </form>
