@@ -130,3 +130,11 @@ form {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 700;
 }
+
+#clearBtn {
+	border: none;
+	background-color: none;
+	color: white;
+	font-family: 'Roboto Slab', serif;
+	font-weight: 700;
+}

@@ -33,7 +33,7 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
-app.get("/", 
+app.get("/", 					// updatas eaten and consumed columns based on db info
 	function(req, res) {
 		connection.query(`SELECT * FROM burgers;`, 
 			function(err, data) {
@@ -61,9 +61,9 @@ app.get("/",
 
 
 
-app.post("/", 
+app.post("/", 					//adds a burger to the users plate
 	function(req, res) {
-		console.log(req.body);
+		// console.log(req.body);
 		connection.query("INSERT INTO burgers (name) VALUES (?)", 
 			[req.body.userBurger],
 			function(err, result) {
@@ -78,20 +78,33 @@ app.post("/",
 app.put("/api/eat/:Id", 		//changes the selected burger's state to consumed
 	function(req, res) {
 		burgerToEat = req.params.Id
-		console.log('request.params line 81: ',req.params);
-		console.log('request.body line 81: ',req.body);
+		// console.log('request.params line 81: ',req.params.id);
+		// console.log('request.body line 81: ',req.body);
 		connection.query( `UPDATE burgers
 			SET consumed = 0
 			WHERE id = ${burgerToEat}`, 
-				function(err, result) {
-					if (err) throw err;
-					res.redirect("/api/eat/");
-				}
+			function(err, result) {
+				if (err) throw err;
+				// res.redirect("/");
+				res.status(200).end();
+			}
 		);
 	}
 );
 
-// Start our server so that it can begin listening to client requests.
+app.delete("/api/clear/", 		//removes all burgers from consumed list
+	function(req, res) {
+		// console.log('working');
+		connection.query( `DELETE FROM burgers
+			WHERE consumed = 0`, 
+			function(err, result) {
+				if (err) throw err;
+				res.redirect("/api/clear/");
+			}
+		);
+	}
+);
+
 app.listen(PORT, function() {
   console.log("Server listening on: http://localhost:" + PORT);
 });
