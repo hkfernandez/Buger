@@ -15,12 +15,12 @@ var mysql = require("mysql");
 
 // app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 // app.set("view engine", "handlebars");
-var connection;
+let connection;
 
 if (process.env.JAWBD_URL){
   connect=mysql.createConnection(process.env.JAWBD_URL);
 } else {
-  var connection = mysql.createConnection({
+    connection = mysql.createConnection({
     host: "localhost",
     port: 3306,
     user: "root",
