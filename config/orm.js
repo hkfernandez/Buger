@@ -3,6 +3,7 @@ const connection = require("./connections.js");
 var orm = {
 	all: function(table, cb) {
             let queryStr = `SELECT * FROM ${table};`;
+		console.log(queryStr);
 		connection.query(queryStr, 
 			function(err, result) {
 				if (err) throw err;
