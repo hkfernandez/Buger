@@ -18,7 +18,7 @@ var mysql = require("mysql");
 let connection;
 
 if (process.env.JAWBD_URL){
-  connect=mysql.createConnection(process.env.JAWBD_URL);
+  connect = mysql.createConnection(process.env.JAWBD_URL);
 } else {
     connection = mysql.createConnection({
     host: "localhost",
