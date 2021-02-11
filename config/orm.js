@@ -2,8 +2,8 @@ const connection = require("./connections.js");
 
 var orm = {
 	all: function(table, cb) {
-            let query = `SELECT * FROM ${table};`;
-		connection.query(query, 
+            let queryStr = `SELECT * FROM ${table};`;
+		connection.query(queryStr, 
 			function(err, result) {
 				if (err) throw err;
                         cb(result);
@@ -11,9 +11,9 @@ var orm = {
 		);
 	},
 	create: function(table, col, val, cb) {
-            let query = `INSERT INTO ${table} (${col}) VALUES ("${val}");`;
-		console.log(query);
-		connection.query(query,
+            let queryStr = `INSERT INTO ${table} (${col}) VALUES ("${val}");`;
+		console.log(queryStr);
+		connection.query(queryStr,
 			function(err, result) {
 				if (err) throw err;
 				cb(result);
@@ -21,8 +21,8 @@ var orm = {
 		);
 	},
 	update: function(table, col1, val1, col2, val2, cb) {
-		let query = `UPDATE ${table} SET ${col1} = ${val1} WHERE ${col2} = ${val2}`;
-		connection.query( query, 
+		let queryStr = `UPDATE ${table} SET ${col1} = ${val1} WHERE ${col2} = ${val2}`;
+		connection.query( queryStr, 
 			function(err, result) {
 				if (err) throw err;
 				cb(result);
@@ -30,8 +30,8 @@ var orm = {
 		);
 	},
 	delete:	function(table, col, val, cb) {
-		let query = `DELETE FROM ${table} WHERE ${col} = ${val};`;
-			connection.query( query, 
+		let queryStr = `DELETE FROM ${table} WHERE ${col} = ${val};`;
+			connection.query( queryStr, 
 				function(err, result) {
 					if (err) throw err;
 					cb(result);
