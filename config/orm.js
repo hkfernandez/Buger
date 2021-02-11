@@ -10,7 +10,7 @@ var orm = {
                         cb(result);
 			}
 		);
-	}
+	},
 	create: function(table, col, val, cb) {
             let queryStr = `INSERT INTO ${table} (${col}) VALUES ("${val}");`;
 		console.log(queryStr);
