@@ -10,17 +10,17 @@ const burger = {
             orm.create('burgers', 'name', burgerName, function(res) {
               cb(res);
             });
+          },
+          update: function(burgerId, cb) {
+            orm.update('burgers', 'consumed', 0, 'id', burgerId, function(res) {
+              cb(res);
+            });
+          },
+          delete: function(cb) {
+            orm.delete('burgers', 'consumed', 0, function(res) {
+              cb(res);
+            });
           }
-          // update: function(burgerId, cb) {
-          //   orm.update('burgers', 'consumed', 0, 'id', burgerId, function(res) {
-          //     cb(res);
-          //   });
-          // },
-          // delete: function(cb) {
-          //   orm.delete('burgers', 'consumed', 0, function(res) {
-          //     cb(res);
-          //   });
-          // }
         
 }
 

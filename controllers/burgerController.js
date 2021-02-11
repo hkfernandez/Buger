@@ -38,27 +38,27 @@ router.post("/",
 );
 
 
-// router.put("/api/eat/:Id", 
-// 	function(req, res) {
-// 		burger.update (
-// 			req.params.Id,
-// 			function (result) {
-// 				res.status(200).end();
-// 			}
-// 		)
-// 	}
-// );
+router.put("/api/eat/:Id", 
+	function(req, res) {
+		burger.update (
+			req.params.Id,
+			function (result) {
+				res.status(200).end();
+			}
+		)
+	}
+);
 
-// router.delete("/api/clear/", 
-// 	function(req, res) {
-// 		burger.delete (
-// 			function(err, result) {
-// 				// if (err) throw err;
-// 				res.status(200).end();
-// 			}
-// 		)
-// 	}
-// );
+router.delete("/api/clear/", 
+	function(req, res) {
+		burger.delete (
+			function(err, result) {
+				// if (err) throw err;
+				res.status(200).end();
+			}
+		)
+	}
+);
 
 
 module.exports = router;

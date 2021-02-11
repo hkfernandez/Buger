@@ -29,16 +29,16 @@ var orm = {
 				cb(result);
 			}
 		);
-	}
-	// delete:	function(table, col, val, cb) {
-	// 	let queryStr = `DELETE FROM ${table} WHERE ${col} = ${val};`;
-	// 		connection.query( queryStr, 
-	// 			function(err, result) {
-	// 				if (err) throw err;
-	// 				cb(result);
-	// 			}
-	// 		);
-	// 	}
+	},
+	delete:	function(table, col, val, cb) {
+		let queryStr = `DELETE FROM ${table} WHERE ${col} = ${val};`;
+			connection.query( queryStr, 
+				function(err, result) {
+					if (err) throw err;
+					cb(result);
+				}
+			);
+		}
 }
 
 module.exports = orm;
