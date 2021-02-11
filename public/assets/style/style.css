@@ -20,6 +20,10 @@ h3 {
 	padding-bottom: .5em;
 }
 
+h4 {
+	font-size: 1em;
+}
+
 .list {
 	display: flex;
 	flex-direction: column;
@@ -79,6 +83,7 @@ form {
 .eatenRow {
 	color: black;
 	text-align: center;
+	padding: .25em;
 }
 
 .textWhite {
@@ -133,8 +138,9 @@ form {
 
 #clearBtn {
 	border: none;
-	background-color: none;
-	color: white;
+	background-color: white;
+	color: #568ab8;
+	font-size: 1.125em;
 	font-family: 'Roboto Slab', serif;
 	font-weight: 700;
 }

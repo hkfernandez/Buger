@@ -1,6 +1,5 @@
 $(".eatBtn").on("click",                  // lets the server know which burger to move to the eaten list
 	function(event) {
-            // alert ('working');
 		// event.preventDefault();
 		let Id = $(this).data("id");
             console.log('burgerId', Id);
@@ -31,7 +30,7 @@ $("#clearBtn").on("click",
 		.then(
 			function(response) {
 				console.log(response);
-				location.assign("/api/eat/");
+				location.reload();
 			}
 		);
   	}
