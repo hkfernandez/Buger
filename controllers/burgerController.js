@@ -25,17 +25,17 @@ router.get("/",
 	}
 );
 
-// router.post("/", 		
-// 	function(req, res) {
-// 		burger.create (
-// 			req.body.userBurger,
-// 			function(result) {
-// 				console.log('burgerController post route result', result);
-// 				res.redirect("/");
-// 			}
-// 		)
-// 	}
-// );
+router.post("/", 		
+	function(req, res) {
+		burger.create (
+			req.body.userBurger,
+			function(result) {
+				console.log('burgerController post route result', result);
+				res.redirect("/");
+			}
+		)
+	}
+);
 
 
 // router.put("/api/eat/:Id", 
