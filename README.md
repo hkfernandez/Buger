@@ -10,7 +10,7 @@ Fork the repository, then navigate to the file in the terminal.
 then `npm install` to install the required packages.
 
 ## Usage 
- `npm start` to start from the terminal, otherwise you can find the app deployed [here.]()
+ `npm start` to start from the terminal, otherwise you can find the app deployed [here.](https://quiet-bayou-27411.herokuapp.com/)
 ![Application Image](public/assets/images/screenshot.png)
 
 ## Credits
